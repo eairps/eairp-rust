@@ -1,0 +1,7 @@
+[server]
+host = "127.0.0.1"
+port = 8080
+
+[database]
+url = "mysql://root:123456@localhost:3306/eairp"
+pool_size = 10
