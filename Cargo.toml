@@ -1,6 +1,10 @@
-[package]
-name = "eairp-api-v2"
-version = "0.1.0"
-edition = "2021"
-
-[dependencies]
+[workspace]
+resolver = "2"
+edition = "2022"
+members = [
+    "api",
+    "service",
+    "dao",
+    "utils",
+    "domain"
+]
