@@ -22,9 +22,12 @@ pub struct AppConfig {
 }
 
 pub fn load_config() -> AppConfig {
+    // set project root path to load .env file
+    let project_root = env::current_dir().unwrap().join("..");
+    env::set_current_dir(project_root).unwrap();
+
     // load .env file
     dotenv().ok();
-    let current_dir = env::current_dir().unwrap();
     let environment = env::var("APP_ENV").unwrap_or_else(|_| "dev".to_string());
     println!("Environment: {}", environment);
 
