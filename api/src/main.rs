@@ -1,8 +1,6 @@
-mod config;
-
-use axum::{Router, routing};
+use axum::Router;
 use tokio;
-use config::load_config;
+use utils::config::load_config;
 
 /// # Eairp api v2 Application Main function
 /// @author James Zow
@@ -14,13 +12,13 @@ use config::load_config;
 ///
 #[tokio::main]
 async fn main() {
-    // 加载配置
+    // load config
     let config = load_config();
 
-    // 初始化应用路由
+    // init app router
     let app = Router::new();
 
-    // 输出服务器启动信息
+    // print server info
     println!("Server is running on http://{}:{}", config.server.host, config.server.port);
 
     // run server
