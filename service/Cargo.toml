@@ -10,3 +10,5 @@ serde_json = "1.0"
 # 引入模块
 domain = { path = "../domain" }
 dao = { path = "../dao" }
+utils = { path = "../utils" }
+log = "0.4.22"
