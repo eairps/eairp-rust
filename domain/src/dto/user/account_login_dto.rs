@@ -1,9 +1,7 @@
-use serde::{Deserialize, Serialize};
-use sqlx::FromRow;
+use serde::{Deserialize};
 
-#[derive(Debug, Clone, Serialize, Deserialize, FromRow)]
+#[derive(Deserialize)]
 pub struct AccountLoginDTO {
-    pub username: Option<String>,           // 用户昵称（别名 姓名）
-
-    pub password: Option<String>,       // 职位
+    pub username: String,
+    pub password: String,
 }

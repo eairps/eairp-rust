@@ -32,7 +32,6 @@ fn serialize_long<S>(x: &Option<i64>, serializer: S) -> Result<S::Ok, S::Error>
 where
     S: Serializer,
 {
-    // 以字符串形式序列化 Long 类型
     match *x {
         Some(value) => serializer.serialize_str(&value.to_string()),
         None => serializer.serialize_none(),
@@ -40,7 +39,6 @@ where
 }
 
 impl UserInfoVO {
-    // 你可以手动实现一个 builder 模式，或者使用一些第三方库来简化这个过程（比如 `derive_builder`）。
     pub fn builder() -> UserInfoVOBuilder {
         UserInfoVOBuilder::default()
     }

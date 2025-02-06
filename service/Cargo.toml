@@ -4,11 +4,17 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-tokio = { version = "1", features = ["full"] }
-serde = { version = "1.0", features = ["derive"] }
-serde_json = "1.0"
 # 引入模块
 domain = { path = "../domain" }
 dao = { path = "../dao" }
 utils = { path = "../utils" }
-log = "0.4.22"
+
+axum = "0.8.1"
+md5 = "0.7.0"
+aes = "0.8.4"
+cbc = "0.1.2"
+cipher = "0.4.3"
+base64 = "0.22.1"
+jsonwebtoken = "9.3.0"
+serde = { version = "1.0.217", features = ["derive"] }
+serde_json = "1.0.138"

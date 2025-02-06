@@ -3,7 +3,7 @@ use serde::{Serialize, Deserialize};
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Response<T> {
     pub msg: String,
-    pub code: String,
+    pub code: i32,
     pub data: Option<T>,
 }
 
@@ -14,10 +14,10 @@ pub enum BaseCodeEnum {
 }
 
 impl BaseCodeEnum {
-    pub fn get_code(&self) -> &str {
+    pub fn get_code(&self) -> i32 {
         match self {
-            BaseCodeEnum::SUCCESS => "200",
-            BaseCodeEnum::ERROR => "500",
+            BaseCodeEnum::SUCCESS => 200,
+            BaseCodeEnum::ERROR => 500,
         }
     }
 
@@ -33,7 +33,7 @@ impl<T> Response<T> {
     pub fn success(data: T) -> Self {
         Response {
             msg: BaseCodeEnum::SUCCESS.get_msg().to_string(),
-            code: BaseCodeEnum::SUCCESS.get_code().to_string(),
+            code: BaseCodeEnum::SUCCESS.get_code(),
             data: Some(data),
         }
     }
@@ -41,7 +41,7 @@ impl<T> Response<T> {
     pub fn fail(msg: String) -> Self {
         Response {
             msg,
-            code: BaseCodeEnum::ERROR.get_code().to_string(),
+            code: BaseCodeEnum::ERROR.get_code(),
             data: None,
         }
     }

@@ -1,6 +1,10 @@
+mod user;
+
 use axum::Router;
+use axum::routing::post;
 use tokio;
 use utils::config::load_config;
+use user::auth;
 
 /// # Eairp api v2 Application Main function
 /// @author James Zow
@@ -16,7 +20,8 @@ async fn main() {
     let config = load_config();
 
     // init app router
-    let app = Router::new();
+    let app = Router::new()
+        .route("/api/user/login", post(auth::account_login));
 
     // print server info
     println!("Server is running on http://{}:{}", config.server.host, config.server.port);

@@ -10,15 +10,21 @@ pub struct ServerConfig {
 }
 
 #[derive(Debug, Deserialize)]
-pub struct DatabaseConfig  {
+pub struct MySqlConfig  {
     pub url: String,
     pub pool_size: u32,
 }
 
 #[derive(Debug, Deserialize)]
+pub struct RedisConfig  {
+    pub url: String,
+}
+
+#[derive(Debug, Deserialize)]
 pub struct AppConfig {
     pub server: ServerConfig,
-    pub database: DatabaseConfig,
+    pub mysql: MySqlConfig,
+    pub redis: RedisConfig,
 }
 
 pub fn load_config() -> AppConfig {
