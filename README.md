@@ -1,3 +1,3 @@
-# Eairp Rust API
+# Eairp Rust
 
-We plan to gradually replace the API of the eairp project from the original Java version to Rust language
+This is the rust implement of the [Eairp](https://github.com/eairps/eairp) project, which will use a brand new UI and API.
