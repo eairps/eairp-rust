@@ -20,10 +20,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Load env file
-      uses: direnv/direnv-action@v2
-      with:
-        env_file: ./.env
+    - name: Load .env file
+      run: |
+        cat .env | grep -v '^#' | xargs -L 1 echo >> $GITHUB_ENV
     - name: Build
       run: cargo build --verbose
     - name: Run tests
