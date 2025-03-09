@@ -20,7 +20,7 @@ async fn main() {
 
     // init app router
     let app = Router::new()
-        .nest("/api/v1", all_routes());
+        .nest("/api/v2", all_routes());
 
     // print server info
     println!("Server is running on http://{}:{}", config.server.host, config.server.port);
